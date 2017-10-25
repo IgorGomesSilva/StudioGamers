@@ -8,8 +8,7 @@ let computadorSchema = new Schema({
   placa: String,
   fonte: String,
   processador: String,
-  monitor: String,
-  cpu: String
+  imagem: String
 });
 
 export default mongoose.model('computador', computadorSchema);
