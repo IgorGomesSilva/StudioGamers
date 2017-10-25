@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 let Schema = mongoose.Schema;
 
 let computadorSchema = new Schema({
-  nome: String,
+  marca: String,
   valor: Number,
   placa: String,
   fonte: String,

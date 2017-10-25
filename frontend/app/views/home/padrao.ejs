@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+		<title>Instagram Clone - WEB</title>
+
+		<!-- JQuery -->
+		<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+		<!-- bootstrap - link cdn -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+		<!-- incluindo css -->
+		<link href="css/style.css" rel="stylesheet">
+
+		<script>
+			$(document).ready(function(){
+
+				$('#btn_incluir').click(function(){
+					$('#container_timeline').hide();
+					$('#container_form').show();
+				});
+
+				$('#btn-cancelar-publicacao').click(function(){
+					$('#container_timeline').show();
+					$('#container_form').hide();
+					return false;
+				});
+				$('#btn-publicar').click(function () {
+					var formData = new FormData();
+
+					var imagem = document.getElementById("imagem").files;
+					var marca = document.getElementById("marca").value;
+					var placa = document.getElementById("placa").value;
+					var fonte = document.getElementById("fonte").value;
+					var processador = document.getElementById("processador").value;
+					var valor = document.getElementById("valor").value;
+
+					formData.append("imagem", imagem);
+					formData.append("marca", marca);
+					formData.append("placa", placa);
+					formData.append("fonte", fonte);
+					formData.append("processador", processador);
+					formData.append("valor", valor);
+
+					var xhr = new XMLHttpRequest();
+
+					xhr.onreadystatechange = function () {
+						if(xhr.readyState == 4){
+								var resposta = xhr.responseText;
+								document.getElementById('mensagem').innerHTML = resposta;
+						}
+
+					}
+
+					xhr.openUri("POST", "http://localhost:8888/computadores");
+					xhr.send(formData);
+
+				});
+
+			});
+		</script>
+
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="col-md-12">
+					<div class="container-fluid">
+						<img alt="Instagram Clone - Versão WEB" src="images/student.png" class="logo2">
+						<img alt="Incluir" src="images/add.png" class="pull-right btn-incluir" id="btn_incluir">
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container">
+			<div class="col-md-2"></div>
+			<div class="col-md-8" id="container_timeline"></div>
+
+		</div>
+
+
+		<div class="container" style="display:none" id="container_form">
+			<div class="panel panel-default">
+
+			<div class="panel-heading"><h4>Cadastrar um Computador</h4></div>
+
+			<div class="panel-body">
+				<div class="form-group">
+					<input type="file" name="imagem" id="imagem" class="form-control">
+				</div>
+
+			<div class="form-group">
+					<input type="text" name="marca" id="marca" class="form-control" placeholder="Marca" autocomplete="off">
+				</div>
+
+			<div class="form-group">
+					<input type="text" name="placa" id="placa" class="form-control" placeholder="Placa" autocomplete="off">
+				</div>
+
+			<div class="form-group">
+					<input type="text" name="fonte" id="fonte" class="form-control" placeholder="Fonte" autocomplete="off">
+				</div>
+
+			<div class="form-group">
+					<input type="text" name="processador" id="processador" class="form-control" placeholder="Processador" autocomplete="off">
+				</div>
+
+			<div class="form-group">
+					<input type="text" name="valor" id="valor" class="form-control" placeholder="valor" autocomplete="off">
+				</div>
+
+				<div class="form-group">
+					<button class="btn btn-success" id="btn-publicar">Publicar</button>
+					<button class="btn btn-danger" id="btn-cancelar-publicacao">Cancelar</button>
+				</div>
+				<div id="mensagem"></div>
+			</div>
+		</div>
+	</body>
+</html>
