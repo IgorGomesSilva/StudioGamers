@@ -1,9 +1,9 @@
 # Studio Gamers
 
-# Requirements
+# Requisitos
 Node.js e Mongodb
 
-## run on CMD ou Terminal
+## Iniciar no CMD ou Terminal
 $ mongod
 
 $ mongo
@@ -16,9 +16,9 @@ $ npm install
 $ npm start
 
 
-# Frontend
+# Frontend pasta /public
 
-## instalar dependencias /public
+## instalar dependencias 
 $ npm install
 
 $ npm run dev
