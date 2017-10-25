@@ -25,7 +25,7 @@ class ComputadorController {
       "fonte": data.fonte,
       "processador": data.processador,
       "monitor": data.monitor,
-      "cpu": data.cpu
+      "img": data.img
     }
 
     return Computador.findByIdAndUpdate(params.id, computador)
@@ -36,7 +36,7 @@ class ComputadorController {
         result.fonte = computador.fonte
         result.processador = computador.processador
         result.monitor = computador.monitor
-        result.cpu = computador.cpu
+        result.img = computador.img
 
         res.json(result)
       })
