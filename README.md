@@ -16,10 +16,9 @@ $ npm install
 $ npm start
 
 
-# Frontend pasta /public
+# Frontend pasta /frontend
 
-## instalar dependencias 
-$ npm install
 
-$ npm run dev
+$ cd config
 
+$ node server.js
