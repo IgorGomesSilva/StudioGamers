@@ -19,6 +19,6 @@ $ npm start
 # Frontend pasta /frontend
 
 
-$ cd config
+$ cd frontend
 
-$ node server.js
+$ node app.js
